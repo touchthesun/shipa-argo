@@ -1,0 +1,11 @@
+apiVersion: shipa.crossplane.io/v1alpha1
+kind: Plan
+metadata:
+  name: cp-plan-create
+spec:
+  forProvider:
+    name: crossplane
+    teams: ["shipa-admin-team"]
+    cpushare: 100
+    memory: 1G
+    swap: 32M

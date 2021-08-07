@@ -1,0 +1,12 @@
+apiVersion: shipa.crossplane.io/v1alpha1
+kind: NetworkPolicy
+metadata:
+  name: netpolicy-k8-app1
+spec:
+  forProvider:
+    app: k8-app1
+    networkPolicy:
+      ingress:
+        policy_mode: deny-all
+      egress:
+        policy_mode: deny-all

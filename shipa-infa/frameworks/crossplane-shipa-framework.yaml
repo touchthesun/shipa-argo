@@ -1,0 +1,102 @@
+apiVersion: shipa.crossplane.io/v1alpha1
+kind: Framework
+metadata:
+  name: cp-dev
+spec:
+  forProvider:
+    shipaFramework: cp-dev
+    resources:
+      general:
+        setup:
+          provisioner: kubernetes
+        router: traefik
+        appQuota:
+          limit: "4"
+        security:
+          disableScan: true
+          scanPlatformLayers: false
+        networkPolicy:
+          ingress:
+            policy_mode: allow-all
+          egress:
+            policy_mode: allow-all
+          disableAppPolicies: false
+
+---
+
+apiVersion: shipa.crossplane.io/v1alpha1
+kind: Framework
+metadata:
+  name: cp-qa
+spec:
+  forProvider:
+    shipaFramework: cp-qa
+    resources:
+      general:
+        setup:
+          provisioner: kubernetes
+        router: traefik
+        appQuota:
+          limit: "8"
+        security:
+          disableScan: true
+          scanPlatformLayers: false
+        networkPolicy:
+          ingress:
+            policy_mode: allow-all
+          egress:
+            policy_mode: allow-all
+          disableAppPolicies: false
+
+---
+
+apiVersion: shipa.crossplane.io/v1alpha1
+kind: Framework
+metadata:
+  name: cp-prod
+spec:
+  forProvider:
+    shipaFramework: cp-prod
+    resources:
+      general:
+        setup:
+          provisioner: kubernetes
+        router: traefik
+        appQuota:
+          limit: "10"
+        security:
+          disableScan: true
+          scanPlatformLayers: false
+        networkPolicy:
+          ingress:
+            policy_mode: allow-all
+          egress:
+            policy_mode: allow-all
+          disableAppPolicies: false
+
+
+---
+
+apiVersion: shipa.crossplane.io/v1alpha1
+kind: Framework
+metadata:
+  name: hackaton-fw
+spec:
+  forProvider:
+    shipaFramework: hackaton-fw
+    resources:
+      general:
+        setup:
+          provisioner: kubernetes
+        router: traefik
+        appQuota:
+          limit: "4"
+        security:
+          disableScan: true
+          scanPlatformLayers: false
+        networkPolicy:
+          ingress:
+            policy_mode: allow-all
+          egress:
+            policy_mode: allow-all
+          disableAppPolicies: false
