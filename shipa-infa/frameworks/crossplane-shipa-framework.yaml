@@ -1,10 +1,10 @@
 apiVersion: shipa.crossplane.io/v1alpha1
 kind: Framework
 metadata:
-  name: cp-dev
+  name: dev
 spec:
   forProvider:
-    shipaFramework: cp-dev
+    shipaFramework: dev
     resources:
       general:
         setup:
@@ -27,10 +27,10 @@ spec:
 apiVersion: shipa.crossplane.io/v1alpha1
 kind: Framework
 metadata:
-  name: cp-qa
+  name: qa
 spec:
   forProvider:
-    shipaFramework: cp-qa
+    shipaFramework: qa
     resources:
       general:
         setup:
@@ -53,10 +53,10 @@ spec:
 apiVersion: shipa.crossplane.io/v1alpha1
 kind: Framework
 metadata:
-  name: cp-prod
+  name: prod
 spec:
   forProvider:
-    shipaFramework: cp-prod
+    shipaFramework: prod
     resources:
       general:
         setup:
@@ -74,29 +74,3 @@ spec:
             policy_mode: allow-all
           disableAppPolicies: false
 
-
----
-
-apiVersion: shipa.crossplane.io/v1alpha1
-kind: Framework
-metadata:
-  name: hackaton-fw
-spec:
-  forProvider:
-    shipaFramework: hackaton-fw
-    resources:
-      general:
-        setup:
-          provisioner: kubernetes
-        router: traefik
-        appQuota:
-          limit: "4"
-        security:
-          disableScan: true
-          scanPlatformLayers: false
-        networkPolicy:
-          ingress:
-            policy_mode: allow-all
-          egress:
-            policy_mode: allow-all
-          disableAppPolicies: false
